@@ -1,0 +1,3 @@
+.nav :global(.active::before) {
+  width: 89%;
+}
