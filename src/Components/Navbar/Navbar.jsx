@@ -110,7 +110,7 @@ export default function Navbar() {
             <div className={`${isOpen ? 'block' : 'hidden'} w-full lg:block lg:w-auto`}>
               <ul className='flex justify-end items-center'>
                 <li className='relative'>
-                  <Link to="/cart" className="block cursor-pointer py-2 px-3 rounded-md" onClick={handleNavLinkClick}>
+                  <Link to="/cart" className="block cursor-pointer py-2 px-3 rounded-md" onClick={handleNavLinkClick} >
                     <i className='fa-solid fa-cart-shopping text-lg'></i>
                     <span className='bg-teal-500 text-sm font-semibold rounded-full absolute top-0 right-0 w-5 h-5 flex items-center justify-center'>
                       {cartInfo === null ? <i className='fa-solid fa-spinner fa-spin'></i> : cartInfo.numOfCartItems || 0}
@@ -118,15 +118,15 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li className='relative'>
-                  <Link to="/wishlist" className="block cursor-pointer py-2 px-3 rounded-md" onClick={handleNavLinkClick}>
+                  <Link to="/wishlist" className="block cursor-pointer py-2 px-3 rounded-md" onClick={handleNavLinkClick} >
                     <i className='fa-solid fa-heart text-xl'></i>
                     <span className='bg-red-500 text-sm font-semibold rounded-full absolute top-0 right-0 w-5 h-5 flex items-center justify-center'>
                       {wishlist === null ? <i className='fa-solid fa-spinner fa-spin'></i> : wishlist.length || 0}
                     </span>
                   </Link>
                 </li>
-                <li>
-                  <span onClick={logOut} className="block cursor-pointer py-2 px-3 rounded-md" onClick={handleNavLinkClick}>
+                <li onClick={handleNavLinkClick}>
+                  <span onClick={logOut} className="block cursor-pointer py-2 px-3 rounded-md" >
                     <i className='fa-solid fa-right-from-bracket text-lg'></i>
                   </span>
                 </li>
