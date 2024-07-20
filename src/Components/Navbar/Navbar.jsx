@@ -20,6 +20,10 @@ export default function Navbar() {
     getWishlistInfo();
   }, []);
 
+  const handleNavLinkClick = () => {
+    setIsOpen(false);
+  };
+
 
   return (
     <>
@@ -84,19 +88,19 @@ export default function Navbar() {
             <div className={`${isOpen ? 'block' : 'hidden'} w-full lg:block lg:w-auto`} id="navbar-default">
               <ul className="flex flex-col gap-3 text-center mt-4  lg:flex-row lg:mt-0 rounded-lg">
                 <li className='p-2 w-fit mx-auto'>
-                  <NavLink to="/" className="block text-center cursor-pointer p-1 rounded-md relative before:absolute before:bottom-0 before:w-0 hover:before:w-[89%] before:transition-all before:duration-500 before:h-0.5 before:bg-teal-500">Home</NavLink>
+                  <NavLink to="/" className="block text-center cursor-pointer p-1 rounded-md relative before:absolute before:bottom-0 before:w-0 hover:before:w-[89%] before:transition-all before:duration-500 before:h-0.5 before:bg-teal-500" onClick={handleNavLinkClick}>Home</NavLink>
                 </li>
                 <li className='p-2 w-fit mx-auto'>
-                  <NavLink to="/products" className="block cursor-pointer p-1 rounded-md relative before:absolute before:bottom-0 before:w-0 hover:before:w-[89%] before:transition-all before:duration-500 before:h-0.5 before:bg-teal-500">Products</NavLink>
+                  <NavLink to="/products" className="block cursor-pointer p-1 rounded-md relative before:absolute before:bottom-0 before:w-0 hover:before:w-[89%] before:transition-all before:duration-500 before:h-0.5 before:bg-teal-500" onClick={handleNavLinkClick}>Products</NavLink>
                 </li>
                 <li className='p-2 w-fit mx-auto'>
-                  <NavLink to="/allorders" className="block cursor-pointer p-1 rounded-md relative before:absolute before:bottom-0 before:w-0 hover:before:w-[89%] before:transition-all before:duration-500 before:h-0.5 before:bg-teal-500">Orders</NavLink>
+                  <NavLink to="/allorders" className="block cursor-pointer p-1 rounded-md relative before:absolute before:bottom-0 before:w-0 hover:before:w-[89%] before:transition-all before:duration-500 before:h-0.5 before:bg-teal-500" onClick={handleNavLinkClick}>Orders</NavLink>
                 </li>
                 <li className='p-2 w-fit mx-auto'>
-                  <NavLink to="/categories" className="block cursor-pointer p-1 rounded-md relative before:absolute before:bottom-0 before:w-0 hover:before:w-[89%] before:transition-all before:duration-500 before:h-0.5 before:bg-teal-500">Categories</NavLink>
+                  <NavLink to="/categories" className="block cursor-pointer p-1 rounded-md relative before:absolute before:bottom-0 before:w-0 hover:before:w-[89%] before:transition-all before:duration-500 before:h-0.5 before:bg-teal-500" onClick={handleNavLinkClick}>Categories</NavLink>
                 </li>
                 <li className='p-2 w-fit mx-auto'>
-                  <NavLink to="/brands" className="block cursor-pointer p-1 rounded-md relative before:absolute before:bottom-0 before:w-0 hover:before:w-[89%] before:transition-all before:duration-500 before:h-0.5 before:bg-teal-500">Brands</NavLink>
+                  <NavLink to="/brands" className="block cursor-pointer p-1 rounded-md relative before:absolute before:bottom-0 before:w-0 hover:before:w-[89%] before:transition-all before:duration-500 before:h-0.5 before:bg-teal-500" onClick={handleNavLinkClick}>Brands</NavLink>
                 </li>
               </ul>
             </div>
@@ -106,7 +110,7 @@ export default function Navbar() {
             <div className={`${isOpen ? 'block' : 'hidden'} w-full lg:block lg:w-auto`}>
               <ul className='flex justify-end items-center'>
                 <li className='relative'>
-                  <Link to="/cart" className="block cursor-pointer py-2 px-3 rounded-md">
+                  <Link to="/cart" className="block cursor-pointer py-2 px-3 rounded-md" onClick={handleNavLinkClick}>
                     <i className='fa-solid fa-cart-shopping text-lg'></i>
                     <span className='bg-teal-500 text-sm font-semibold rounded-full absolute top-0 right-0 w-5 h-5 flex items-center justify-center'>
                       {cartInfo === null ? <i className='fa-solid fa-spinner fa-spin'></i> : cartInfo.numOfCartItems || 0}
@@ -114,7 +118,7 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li className='relative'>
-                  <Link to="/wishlist" className="block cursor-pointer py-2 px-3 rounded-md">
+                  <Link to="/wishlist" className="block cursor-pointer py-2 px-3 rounded-md" onClick={handleNavLinkClick}>
                     <i className='fa-solid fa-heart text-xl'></i>
                     <span className='bg-red-500 text-sm font-semibold rounded-full absolute top-0 right-0 w-5 h-5 flex items-center justify-center'>
                       {wishlist === null ? <i className='fa-solid fa-spinner fa-spin'></i> : wishlist.length || 0}
@@ -122,7 +126,7 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <span onClick={logOut} className="block cursor-pointer py-2 px-3 rounded-md">
+                  <span onClick={logOut} className="block cursor-pointer py-2 px-3 rounded-md" onClick={handleNavLinkClick}>
                     <i className='fa-solid fa-right-from-bracket text-lg'></i>
                   </span>
                 </li>
